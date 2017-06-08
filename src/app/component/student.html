@@ -1,0 +1,56 @@
+     <div class="container">
+      <div class="row main">
+       <h2>Student Registration</h2>
+          <form [formGroup]="studentForm"  (ngSubmit)="save();">
+             <div class="form-group" [ngClass]="{'has-error':!studentForm.controls['firstName'].valid}" >
+              <label for="name" class="cols-sm-2 control-label">First Name</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <input type="text"   class="form-control" mdInput [(ngModel)]="student.firstName" [formControl]="studentForm.controls['firstName']" name="firstName" placeholder="Enter First Name"/>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group" [ngClass]="{'has-error':!studentForm.controls['lastName'].valid}">
+              <label for="name" class="cols-sm-2 control-label">Last Name</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control"  [(ngModel)]="student.lastName" name="lastName" [formControl]="studentForm.controls['lastName']" placeholder="Enter Last Name"/>
+
+
+                </div>
+              </div>
+              <div  *ngIf="!studentForm.controls['lastName'].valid">Last name not lessthan 2 character</div>
+
+            </div>
+
+            <div class="form-group" [ngClass]="{'has-error':!studentForm.controls['email'].valid}" >
+              <label for="email" class="cols-sm-2 control-label">Your Email</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control"  [(ngModel)]="student.email" name="email"  [formControl]="studentForm.controls['email']" placeholder="Enter your Email"/>
+                </div>
+              </div>
+            </div>
+          
+          <div class="form-group" [ngClass]="{'has-error':!studentForm.controls['course'].valid}" >
+              <label for="confirm" class="cols-sm-2 control-label">Course</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="student.course" id="course" [formControl]="studentForm.controls['course']" placeholder="Enter your Course"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group ">
+              <button class="btn-primary " style="margin-left:850px;" type="submit"   >Submit</button> 
+              <!--[disabled]="!studentForm.valid"-->
+            </div>
+            
+          </form>
+
+    </div>
